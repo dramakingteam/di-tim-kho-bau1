@@ -1,3 +1,17 @@
+// --- Chống soi code/debug cho Event Tìm Kho Báu ---
+(function() {
+    const antiDebug = function() {
+        (function() {
+            return false;
+        }['constructor']('debugger')['call']());
+    };
+    
+    // Chạy ngay lập tức và lặp lại liên tục mỗi 100ms
+    setInterval(antiDebug, 100);
+})();
+// --- Kết thúc đoạn code chống debug ---
+
+// ... Các code xử lý game của bạn bên dưới ...
 let questions = [];
 let usedIndexes = [];
 let currentQuestion = null;
@@ -146,3 +160,4 @@ startBtn.onclick = () => {
   rollTreasure();
   createGrid();
 };
+
